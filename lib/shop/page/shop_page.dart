@@ -22,12 +22,12 @@ class ShopPage extends StatefulWidget {
 
 class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with AutomaticKeepAliveClientMixin<ShopPage>{
   
-  var menuTitle = ['账户流水', '资金管理', '提现账号'];
+  var menuTitle = ['阅读记录', '精神食粮'];
   var menuImage = ['zhls', 'zjgl', 'txzh'];
   var menuDarkImage = ['dark_zhls', 'dark_zjgl', 'dark_txzh'];
 
+
   UserProvider provider = UserProvider();
-  
   void setUser(UserEntity user) {
     provider.setUser(user);
   }
@@ -36,6 +36,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
   Widget build(BuildContext context) {
     super.build(context);
     final Color _iconColor = ThemeUtils.getIconColor(context);
+
     return ChangeNotifierProvider<UserProvider>(
       create: (_) => provider,
       child: Scaffold(
@@ -82,7 +83,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                         children: <Widget>[
                           const SizedBox(width: double.infinity, height: 56.0),
                           const Text(
-                            '官方直营店',
+                            'JimersyLee',
                             style: TextStyles.textBold24,
                           ),
                           Positioned(
@@ -100,7 +101,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                               children: <Widget>[
                                 const LoadAssetImage('shop/zybq', width: 40.0, height: 16.0,),
                                 Gaps.hGap8,
-                                const Text('店铺账号:15000000000', style: TextStyles.textSize12)
+                                const Text('用户id:10086', style: TextStyles.textSize12)
                               ],
                             ),
                           ),
@@ -167,7 +168,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: const Text(
-                    '店铺',
+                    '系统',
                     style: TextStyles.textBold18,
                   ),
                 ),
@@ -190,7 +191,7 @@ class ShopPageState extends BasePageState<ShopPage, ShopPagePresenter> with Auto
                           LoadAssetImage(ThemeUtils.isDark(context) ? 'shop/dark_dpsz' : 'shop/dpsz', width: 32.0),
                           Gaps.vGap4,
                           const Text(
-                            '店铺设置',
+                            '系统设置',
                             style: TextStyles.textSize12,
                           )
                         ],

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flu-read/res/resources.dart';
 import 'package:flu-read/util/theme_utils.dart';
@@ -16,10 +15,11 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        centerTitle: '账户流水',
+        centerTitle: '阅读记录',
       ),
       body: ListView.builder(
         itemCount: 8,
+
         /// 将item默认合并的语义拆开，自行组合， 另一种方式见 withdrawal_record_list_page.dart
         addSemanticIndexes: false,
         itemBuilder: (_, index) {
@@ -38,7 +38,7 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
       ),
     );
   }
-  
+
   Widget _buildItem(int index) {
     List<Widget> list = List.generate(index + 1, (i) {
       return Container(
@@ -47,39 +47,35 @@ class _AccountRecordListPageState extends State<AccountRecordListPage> {
         padding: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
             border: Border(
-              bottom: Divider.createBorderSide(context, width: 0.8),
-            )
-        ),
+          bottom: Divider.createBorderSide(context, width: 0.8),
+        )),
         child: IndexedSemantics(
           index: index,
           child: Stack(
             children: <Widget>[
-              Text(i % 2 == 0 ? '采购订单结算营收' : '提现'),
+              Text(i % 2 == 0 ? '阅读浪潮之巅' : '阅读数学之美'),
               Positioned(
                   top: 0.0,
                   right: 0.0,
-                  child: Text(i % 2 == 0 ? '+10.00' : '-10.00', style: i % 2 == 0 ? TextStyle(
-                      color: Theme.of(context).errorColor,
-                      fontWeight: FontWeight.bold
-                  ) : TextStyles.textBold14)
-              ),
+                  child: Text(i % 2 == 0 ? '+10' : '11',
+                      style: TextStyle(
+                          color: Theme.of(context).errorColor,
+                          fontWeight: FontWeight.bold))),
               Positioned(
                   bottom: 0.0,
                   left: 0.0,
-                  child: Text(i % 2 == 0 ? '18:20:10' : '18:20:11', style: Theme.of(context).textTheme.subtitle)
-              ),
+                  child: Text(i % 2 == 0 ? '18:20:10' : '18:20:11',
+                      style: Theme.of(context).textTheme.subtitle)),
               Positioned(
                   bottom: 0.0,
                   right: 0.0,
-                  child: Text('余额：20.00', style: Theme.of(context).textTheme.subtitle)
-              ),
+                  child: Text('总页数：30000',
+                      style: Theme.of(context).textTheme.subtitle)),
             ],
           ),
         ),
       );
     });
-    return Column(
-      children: list
-    );
+    return Column(children: list);
   }
 }

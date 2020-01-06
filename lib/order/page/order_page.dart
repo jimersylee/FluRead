@@ -133,7 +133,7 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
             centerTitle: true,
             titlePadding: const EdgeInsetsDirectional.only(start: 16.0, bottom: 14.0),
             collapseMode: CollapseMode.pin,
-            title: Text('订单', style: TextStyle(color: ThemeUtils.getIconColor(context)),),
+            title: Text('首页', style: TextStyle(color: ThemeUtils.getIconColor(context)),),
           ),
         ),
       ),
@@ -165,11 +165,11 @@ class _OrderPageState extends State<OrderPage> with AutomaticKeepAliveClientMixi
                       ),
                       indicatorColor: Colors.transparent,
                       tabs: const <Widget>[
-                        const _TabView(0, '新订单'),
-                        const _TabView(1, '待配送'),
-                        const _TabView(2, '待完成'),
-                        const _TabView(3, '已完成'),
-                        const _TabView(4, '已取消'),
+                        const _TabView(0, '笔记'),
+                        const _TabView(1, '新品'),
+                        const _TabView(2, '看手气'),
+                        const _TabView(3, '回味'),
+                        const _TabView(4, '尝鲜'),
                       ],
                       onTap: (index) {
                         if (!mounted) {

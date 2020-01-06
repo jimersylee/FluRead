@@ -21,7 +21,7 @@ class _AccountPageState extends State<AccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(
-        centerTitle: '资金管理',
+        centerTitle: '精神食粮',
       ),
       body: Column(
         children: <Widget>[
@@ -44,9 +44,9 @@ class _AccountPageState extends State<AccountPage> {
                   child: MergeSemantics(
                     child: Column(
                       children: <Widget>[
-                        const Text('当前余额(元)', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
+                        const Text('输出笔记(篇)', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                         Gaps.vGap8,
-                        RiseNumberText(30.12, style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
+                        RiseNumberText(30, style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
                       ],
                     ),
                   ),
@@ -61,7 +61,7 @@ class _AccountPageState extends State<AccountPage> {
                       MergeSemantics(
                         child: Column(
                           children: <Widget>[
-                            const Text('累计结算金额', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
+                            const Text('累计阅读页数', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                             Gaps.vGap8,
                             RiseNumberText(NumUtil.getDoubleByValueStr('20000'), style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
                           ],
@@ -70,9 +70,9 @@ class _AccountPageState extends State<AccountPage> {
                       MergeSemantics(
                         child: Column(
                           children: <Widget>[
-                            const Text('累计发放佣金', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
+                            const Text('累计阅读本数', style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp12)),
                             Gaps.vGap8,
-                            RiseNumberText(0.02, style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
+                            RiseNumberText(11, style: TextStyle(color: Colours.text_disabled, fontSize: Dimens.font_sp14, fontWeight: FontWeight.bold, fontFamily: 'RobotoThin')),
                           ],
                         ),
                       ),
@@ -84,15 +84,15 @@ class _AccountPageState extends State<AccountPage> {
           ),
           Gaps.vGap5,
           ClickItem(
-            title: '提现',
+            title: '记一笔',
             onTap: () => NavigatorUtils.push(context, AccountRouter.withdrawalPage),
           ),
           ClickItem(
-            title: '提现记录',
+            title: '写一篇',
             onTap: () => NavigatorUtils.push(context, AccountRouter.withdrawalRecordListPage),
           ),
           ClickItem(
-            title: '提现密码',
+            title: '冥想',
             onTap: () => NavigatorUtils.push(context, AccountRouter.withdrawalPasswordPage),
           ),
         ],

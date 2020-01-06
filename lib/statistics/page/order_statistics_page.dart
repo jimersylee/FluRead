@@ -63,7 +63,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     _unSelectedTextColor = ThemeUtils.isDark(context) ? Colors.white : Colours.dark_text_gray;
     return Scaffold(
       appBar: MyAppBar(
-        centerTitle: widget.index == 1 ? '订单统计' : '交易额统计',
+        centerTitle: widget.index == 1 ? '书籍走势' : '已读页数统计',
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -158,15 +158,17 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(widget.index == 1 ? '订单走势' : '交易额走势', style: TextStyles.textBold18),
+                    Text(widget.index == 1 ? '书籍走势' : '已读页数统计', style: TextStyles.textBold18),
                     Gaps.vGap16,
-                    _buildChart(Colours.app_main, const Color(0x805793FA), widget.index == 1 ? '全部订单' : '交易额(元)', '3000'),
+                    _buildChart(Colours.app_main, const Color(0x805793FA), widget.index == 1 ? '所有书籍' : '页数', '3000'),
                     widget.index != 1 ? Gaps.empty : Column(
                       children: <Widget>[
                         Gaps.vGap16,
-                        _buildChart(const Color(0xFFFFAA33), const Color(0x80FFAA33), '完成订单', '2000'),
+                        _buildChart(const Color(0xFFFFAA33), const Color(0x80FFAA33), '已读书籍', '2000'),
                         Gaps.vGap16,
-                        _buildChart(Theme.of(context).errorColor, const Color(0x80FF4759), '取消订单', '1000'),
+                        _buildChart(Theme.of(context).errorColor, const Color(0x80FF4759), '在读书籍', '1000'),
+                        Gaps.vGap16,
+                        _buildChart(Theme.of(context).errorColor, const Color(0x80FF4759), '想读书籍', '1000'),
                         Gaps.vGap16,
                       ],
                     )

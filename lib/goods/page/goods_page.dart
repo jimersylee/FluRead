@@ -21,7 +21,7 @@ class GoodsPage extends StatefulWidget {
 
 class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin{
 
-  List<String> _sortList = ['全部商品', '个人护理', '饮料', '沐浴洗护', '厨房用具', '休闲食品', '生鲜水果', '酒水', '家庭清洁'];
+  List<String> _sortList = ['全部标签', '个人护理', '饮料', '沐浴洗护', '厨房用具', '休闲食品', '生鲜水果', '酒水', '家庭清洁'];
   TabController _tabController;
   PageController _pageController = PageController(initialPage: 0);
   
@@ -136,9 +136,9 @@ class _GoodsPageState extends State<GoodsPage> with SingleTickerProviderStateMix
                 labelColor: Theme.of(context).primaryColor,
                 indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
                 tabs: <Widget>[
-                  const _TabView('在售', 0),
-                  const _TabView('待售', 1),
-                  const _TabView('下架', 2),
+                  const _TabView('在读', 0),
+                  const _TabView('想读', 1),
+                  const _TabView('已读', 2),
                 ],
               ),
             ),
@@ -327,7 +327,7 @@ class _TabView extends StatelessWidget {
                   Text(tabName),
                   Offstage(offstage: provider.goodsCountList[index] == 0 || provider.index != index, child: Padding(
                     padding: const EdgeInsets.only(top: 1.0),
-                    child: Text(' (${provider.goodsCountList[index]}件)', style: TextStyle(fontSize: Dimens.font_sp12)),
+                    child: Text(' (${provider.goodsCountList[index]}本)', style: TextStyle(fontSize: Dimens.font_sp12)),
                   )),
                 ],
               ),

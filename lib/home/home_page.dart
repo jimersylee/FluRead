@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
 
   var _pageList;
   
-  var _appBarTitles = ['在读', '想读', '已读', '所有'];
+  var _appBarTitles = ['首页', '分类', '统计', '我的'];//订单 商品 统计 店铺
   final _pageController = PageController();
 
   HomeProvider provider = HomeProvider();

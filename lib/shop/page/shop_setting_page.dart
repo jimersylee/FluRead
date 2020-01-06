@@ -29,9 +29,9 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
   String _sendPrice = '0.00';
   String _freePrice = '0.00';
   String _phone = '';
-  String _shopIntroduction = '零食铺子坚果饮料美酒佳肴…';
-  String _securityService = '假一赔十';
-  String _address = '陕西省 西安市 长安区 郭杜镇郭北村韩林路圣方医院斜对面';
+  String _shopIntroduction = '我是一只小毛驴';
+  String _securityService = '每日开启';
+  String _address = '哈哈呵呵';
   
   _getPayType() {
     String payType = '';
@@ -71,14 +71,14 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 16.0),
                           child: Text(
-                            _check ? '正在营业' : '暂停营业',
+                            _check ? '黑暗模式' : '普通模式',
                             style: TextStyles.textBold24,
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(right: 4.0),
                           child: Semantics(
-                            label: '店铺营业开关',
+                            label: '浏览模式开关',
                             child: Switch.adaptive(
                               value: _check,
                               onChanged: (bool val) {
@@ -99,12 +99,12 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     ),
                     Gaps.vGap16,
                     ClickItem(
-                      title: '店铺简介',
+                      title: '个人资料',
                       content: _shopIntroduction,
                       onTap: () {
                         AppNavigator.pushResult(context,
                             InputTextPage(
-                              title: '店铺简介',
+                              title: '简介',
                               hintText: '这里有一段完美的简介…',
                               content: _shopIntroduction,
                             ), (result) {
@@ -115,12 +115,12 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       },
                     ),
                     ClickItem(
-                      title: '保障服务',
+                      title: '每日提醒',
                       content: _securityService,
                       onTap: () {
                         AppNavigator.pushResult(context,
                           InputTextPage(
-                            title: '保障服务',
+                            title: '每日提醒',
                             hintText: '这里有一段完美的说明…',
                             content: _securityService,
                           ), (result) {
@@ -131,7 +131,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                       },
                     ),
                     ClickItem(
-                      title: '支付方式',
+                      title: '阅读方式',
                       content: _getPayType(),
                       onTap: () {
                         showElasticDialog(
@@ -153,12 +153,12 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Gaps.vGap16,
                     const Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: const Text('运费设置', style: TextStyles.textBold18),
+                      child: const Text('哈哈', style: TextStyles.textBold18),
                     ),
                     Gaps.vGap16,
                     ClickItem(
-                      title: '运费配置',
-                      content: _sendType == 0 ? '运费满免配置' : '运费比例配置',
+                      title: '哈哈',
+                      content: _sendType == 0 ? '配置1' : '配置2',
                       onTap: () {
                         showElasticDialog(
                             context: context,
@@ -177,7 +177,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Offstage(
                       offstage: _sendType == 1,
                       child: ClickItem(
-                        title: '运费满免',
+                        title: '没想好',
                         content: _freePrice,
                         onTap: () {
                           showDialog(
@@ -185,7 +185,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                               barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return PriceInputDialog(
-                                  title: '配送费满免',
+                                  title: '没想好',
                                   onPressed: (value) {
                                     setState(() {
                                       _freePrice = value;
@@ -199,7 +199,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                     Offstage(
                       offstage: _sendType == 1,
                       child: ClickItem(
-                        title: '配送费用',
+                        title: '财富/页数比率',
                         content: _sendPrice,
                         onTap: () {
                           showDialog(
@@ -207,7 +207,7 @@ class _ShopSettingPageState extends State<ShopSettingPage> {
                               barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return PriceInputDialog(
-                                  title: '配送费用',
+                                  title: '财富/页数比率',
                                   onPressed: (value) {
                                     setState(() {
                                       _sendPrice = value;

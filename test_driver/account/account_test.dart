@@ -21,10 +21,10 @@ void main() {
       driver?.close();
     });
 
-    test('账户流水页测试',() async {
+    test('阅读记录页测试',() async {
       await driver.tap(find.byValueKey('店铺'));
       await delayed();
-      await driver.tap(find.text('账户流水'));
+      await driver.tap(find.text('阅读记录'));
       await delayed();
       await driver.tap(find.byTooltip('Back'));
       await delayed();

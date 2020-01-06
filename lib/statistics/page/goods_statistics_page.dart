@@ -25,7 +25,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
 
   DateTime _initialDay;
   int _selectedIndex = 2;
-  /// false 待配货 true 已配货
+  /// false 书名维度 true 标签维度
   bool _type = false;
   
   @override
@@ -38,7 +38,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(
-        actionName: _type ? '待配货' : '已配货',
+        actionName: _type ? '书名维度' : '标签维度',
         onPressed: () {
           setState(() {
             _type = !_type;
@@ -55,7 +55,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Gaps.vGap4,
-                Text(_type ? '已配货' : '待配货', style: TextStyles.textBold24),
+                Text(_type ? '标签维度' : '书名维度', style: TextStyles.textBold24),
                 Gaps.vGap16,
                 Gaps.vGap16,
                 Row(
@@ -73,7 +73,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 ),
                 Gaps.vGap8,
                 _buildChart(),
-                const Text('热销商品排行', style: TextStyles.textBold18),
+                const Text('最爱书籍排行', style: TextStyles.textBold18),
                 ListView.builder(
                   physics: ClampingScrollPhysics(),
                   padding: const EdgeInsets.only(top: 16.0, right: 16.0),
@@ -97,7 +97,7 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
       child: FractionallySizedBox(
         heightFactor: 0.8,
         child: PieChart(
-          name: _type ? '已配货' : '待配货',
+          name: _type ? '标签维度' : '书名维度',
           data: _getRandomData(),
         ),
       ),
@@ -175,8 +175,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text('那鲁火多饮料', maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold, fontSize: Dimens.font_sp12)),
-                    Text('250ml', style: Theme.of(context).textTheme.subtitle),
+                    Text('数学之美', maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold, fontSize: Dimens.font_sp12)),
+                    Text('250页', style: Theme.of(context).textTheme.subtitle),
                   ],
                 ),
               ),
@@ -187,8 +187,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text('100件', style: Theme.of(context).textTheme.subtitle),
-                    Text('未支付', style: Theme.of(context).textTheme.subtitle),
+                    Text('100页', style: Theme.of(context).textTheme.subtitle),
+                    Text('未读', style: Theme.of(context).textTheme.subtitle),
                   ],
                 ),
               ),
@@ -197,8 +197,8 @@ class _GoodsStatisticsPageState extends State<GoodsStatisticsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: _type ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('400件', style: Theme.of(context).textTheme.subtitle),
-                  Offstage(offstage: _type, child: Text('已支付', style: Theme.of(context).textTheme.subtitle)),
+                  Text('400页', style: Theme.of(context).textTheme.subtitle),
+                  Offstage(offstage: _type, child: Text('已读', style: Theme.of(context).textTheme.subtitle)),
                 ],
               ),
             ],

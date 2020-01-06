@@ -186,7 +186,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                       getGoodsInfoItem('配送费', Utils.formatPrice('5.00')),
                       getGoodsInfoItem('立减', Utils.formatPrice('-2.50'), contentTextColor: red),
                       getGoodsInfoItem('优惠券', Utils.formatPrice('-2.50'), contentTextColor: red),
-                      getGoodsInfoItem('社区币抵扣', Utils.formatPrice('-2.50'), contentTextColor: red),
+                      getGoodsInfoItem('常读', Utils.formatPrice('-2.50'), contentTextColor: red),
                       getGoodsInfoItem('佣金', Utils.formatPrice('-1.0'), contentTextColor: red),
                       Gaps.line,
                       Gaps.vGap8,

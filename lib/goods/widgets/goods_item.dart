@@ -59,7 +59,7 @@ class GoodsItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         const Text(
-                          '八月十五中秋月饼礼盒',
+                          '浪潮之巅',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis
                         ),
@@ -79,7 +79,7 @@ class GoodsItem extends StatelessWidget {
                                 height: 16.0,
                                 alignment: Alignment.center,
                                 child: const Text(
-                                  '立减',
+                                  '最近在读',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: Dimens.font_sp10
@@ -99,7 +99,7 @@ class GoodsItem extends StatelessWidget {
                                 height: 16.0,
                                 alignment: Alignment.center,
                                 child: const Text(
-                                  '社区币抵扣',
+                                  '常读',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: Dimens.font_sp10
@@ -110,7 +110,7 @@ class GoodsItem extends StatelessWidget {
                           ],
                         ),
                         Gaps.vGap16,
-                        Text(Utils.formatPrice('20.00', format: MoneyFormat.NORMAL))
+                        Text("吴军")
                       ],
                     ),
                   ),
@@ -135,7 +135,7 @@ class GoodsItem extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 30.0),
                         child: Text(
-                          '特产美味',
+                          '49%',
                           style: Theme.of(context).textTheme.subtitle,
                         ),
                       )

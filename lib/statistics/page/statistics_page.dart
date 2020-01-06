@@ -72,9 +72,9 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 child: MyCard(
                   child: Row(
                     children: <Widget>[
-                      const _StatisticsTab('新订单(单)', 'xdd', '80'),
-                      const _StatisticsTab('待配送(单)', 'dps', '80'),
-                      const _StatisticsTab('今日交易额(元)', 'jrjye', '8000.00'),
+                      const _StatisticsTab('今日已读(页)', 'xdd', '80'),
+                      const _StatisticsTab('今日读完(本)', 'dps', '1'),
+                      const _StatisticsTab('阅读总计(本)', 'jrjye', '223'),
                     ],
                   ),
                 ),
@@ -93,11 +93,11 @@ class _StatisticsPageState extends State<StatisticsPage> {
               Gaps.vGap16,
               const Text('数据走势', style: TextStyles.textBold18),
               Gaps.vGap16,
-              const _StatisticsItem('订单统计', 'sjzs', 1),
+              const _StatisticsItem('书籍走势', 'sjzs', 1),
               Gaps.vGap8,
-              const _StatisticsItem('交易额统计', 'jyetj', 2),
+              const _StatisticsItem('已读页数统计', 'jyetj', 2),
               Gaps.vGap8,
-              const _StatisticsItem('商品统计', 'sptj', 3),
+              const _StatisticsItem('最爱书籍走势', 'sptj', 3),
             ],
           ),
         ),

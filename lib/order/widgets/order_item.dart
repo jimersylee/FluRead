@@ -40,10 +40,10 @@ class OrderItem extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: Text('15000000000（郭李）'),
+                      child: Text('浪潮之巅读书笔记'),
                     ),
                     Text(
-                      '货到付款',
+                      '刚刚出炉',
                       style: TextStyle(
                           fontSize: Dimens.font_sp12,
                           color: Theme.of(context).errorColor
@@ -53,7 +53,7 @@ class OrderItem extends StatelessWidget {
                 ),
                 Gaps.vGap8,
                 Text(
-                  '西安市雁塔区 鱼化寨街道唐兴路唐兴数码3楼318',
+                  '我觉得我上我也行',
                   style: Theme.of(context).textTheme.subtitle,
                 ),
                 Gaps.vGap8,
@@ -63,21 +63,12 @@ class OrderItem extends StatelessWidget {
                     text: TextSpan(
                       style: textTextStyle,
                       children: <TextSpan>[
-                        TextSpan(text: '清凉一度抽纸'),
+                        TextSpan(text: '浪潮之巅'),
                         TextSpan(text: '  x1', style: Theme.of(context).textTheme.subtitle),
                       ],
                     )
                 ),
                 Gaps.vGap8,
-                RichText(
-                    text: TextSpan(
-                      style: textTextStyle,
-                      children: <TextSpan>[
-                        TextSpan(text: '清凉一度抽纸'),
-                        TextSpan(text: '  x2', style: Theme.of(context).textTheme.subtitle),
-                      ],
-                    )
-                ),
                 Gaps.vGap12,
                 Row(
                   children: <Widget>[
@@ -86,8 +77,7 @@ class OrderItem extends StatelessWidget {
                           text: TextSpan(
                             style: textTextStyle,
                             children: <TextSpan>[
-                              TextSpan(text: Utils.formatPrice('20.00', format: MoneyFormat.NORMAL)),
-                              TextSpan(text: '  共3件商品', style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp10)),
+                              TextSpan(text: '  共300字', style: Theme.of(context).textTheme.subtitle.copyWith(fontSize: Dimens.font_sp10)),
                             ],
                           )
                       ),
@@ -105,7 +95,7 @@ class OrderItem extends StatelessWidget {
                   children: <Widget>[
                     OrderItemButton(
                       key: Key('order_button_1_$index'),
-                      text: '联系客户',
+                      text: '删除',
                       textColor: isDark ? Colours.dark_text : Colours.text,
                       bgColor: isDark ? Colours.dark_material_bg : Colours.bg_gray,
                       onTap: () => _showCallPhoneDialog(context, '15000000000'),

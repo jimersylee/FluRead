@@ -260,7 +260,7 @@ class _GoodsSizePageState extends State<GoodsSizePage> {
                                 height: 16.0,
                                 alignment: Alignment.center,
                                 child: Text(
-                                  '社区币抵扣${goodsSizeList[index].currencyPrice}元',
+                                  '常读${goodsSizeList[index].currencyPrice}元',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: Dimens.font_sp10

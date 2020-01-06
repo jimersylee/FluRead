@@ -18,8 +18,8 @@ class Constant {
 
   static const String theme = 'AppTheme';
 
-  static const List<String> orderLeftButtonText = ['拒单', '拒单', '订单跟踪', '订单跟踪', '订单跟踪'];
-  static const List<String> orderRightButtonText = ['接单', '开始配送', '完成', '', ''];
+  static const List<String> orderLeftButtonText = ['编辑', '拒单', '订单跟踪', '订单跟踪', '订单跟踪'];
+  static const List<String> orderRightButtonText = ['自我欣赏', '开始配送', '完成', '', ''];
 
   static const List<Color> colorList = [
     Color(0xFFFFD147), Color(0xFFA9DAF2), Color(0xFFFAAF64),
