@@ -1,4 +1,5 @@
-
+import 'package:flu-read/net/dio_utils.dart';
+import 'package:flu-read/util/log_utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    //监听输入改变  
+    //监听输入改变
     _nameController.addListener(_verify);
     _passwordController.addListener(_verify);
     _nameController.text = FlutterStars.SpUtil.getString(Constant.phone);
@@ -56,30 +57,63 @@ class _LoginPageState extends State<LoginPage> {
       });
     }
   }
-  
+
   void _login() {
+    Log.d("按下登录按钮");
+    Map<String, String> postData = new Map();
+    postData['username'] = "jimersylee";
+    postData['password'] = "12345678";
+    DioUtils.instance.requestNetwork(Method.post, "api/user/login",
+        onSuccess: (data) {
+      Log.d(data);
+      showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('提示'),
+              content: Text('您的token为：$data.message ?'),
+              actions: <Widget>[
+                FlatButton(
+                  onPressed: () => NavigatorUtils.goBack(context),
+                  child: const Text('取消'),
+                ),
+                FlatButton(
+                  onPressed: () {
+                    NavigatorUtils.goBack(context);
+                  },
+                  textColor: Theme.of(context).errorColor,
+                  child: const Text('拨打'),
+                ),
+              ],
+            );
+          });
+    }, onError: (ee, e) {
+      print('$ee, $e');
+    }, params: postData);
     FlutterStars.SpUtil.putString(Constant.phone, _nameController.text);
     NavigatorUtils.push(context, StoreRouter.auditPage);
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        isBack: false,
-        actionName: '验证码登录',
-        onPressed: () {
-          NavigatorUtils.push(context, LoginRouter.smsLoginPage);
-        },
-      ),
-      body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
-        child: _buildBody(),
-      ) : SingleChildScrollView(
-        child: _buildBody(),
-      ) 
-    );
+        appBar: MyAppBar(
+          isBack: false,
+          actionName: '验证码登录',
+          onPressed: () {
+            NavigatorUtils.push(context, LoginRouter.smsLoginPage);
+          },
+        ),
+        body: defaultTargetPlatform == TargetPlatform.iOS
+            ? FormKeyboardActions(
+                child: _buildBody(),
+              )
+            : SingleChildScrollView(
+                child: _buildBody(),
+              ));
   }
-  
+
   _buildBody() {
     return Padding(
       padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0),
@@ -104,7 +138,8 @@ class _LoginPageState extends State<LoginPage> {
             key: const Key('password'),
             keyName: 'password',
             focusNode: _nodeText2,
-            config: Utils.getKeyboardActionsConfig(context, [_nodeText1, _nodeText2]),
+            config: Utils.getKeyboardActionsConfig(
+                context, [_nodeText1, _nodeText2]),
             isInputPwd: true,
             controller: _passwordController,
             keyboardType: TextInputType.visiblePassword,
@@ -126,7 +161,8 @@ class _LoginPageState extends State<LoginPage> {
                 '忘记密码',
                 style: Theme.of(context).textTheme.subtitle,
               ),
-              onTap: () => NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
+              onTap: () =>
+                  NavigatorUtils.push(context, LoginRouter.resetPasswordPage),
             ),
           ),
           Gaps.vGap16,
@@ -135,13 +171,11 @@ class _LoginPageState extends State<LoginPage> {
               child: GestureDetector(
                 child: Text(
                   '还没账号？快去注册',
-                  style: TextStyle(
-                      color: Theme.of(context).primaryColor
-                  ),
+                  style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
-                onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
-              )
-          )
+                onTap: () =>
+                    NavigatorUtils.push(context, LoginRouter.registerPage),
+              ))
         ],
       ),
     );
