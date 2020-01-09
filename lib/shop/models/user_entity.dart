@@ -7,7 +7,7 @@ class UserEntity {
 	UserEntity({this.avatarUrl, this.name, this.id, this.blog});
 
 	UserEntity.fromJson(Map<String, dynamic> json) {
-		avatarUrl = json['avatar_url'];
+		avatarUrl = json['avatar'];
 		name = json['name'];
 		id = json['id'];
 		blog = json['blog'];
